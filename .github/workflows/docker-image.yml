@@ -37,14 +37,14 @@ jobs:
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker build -t orjape95/docker-graphql:0.0.1 .
+        docker build -t orjape95/docker-graphql:$NEW_VERSION .
         docker build -t orjape95/docker-graphql:latest .       
     
     - name: Push Docker Image
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker push orjape95/docker-graphql:0.0.1
+        docker push orjape95/docker-graphql:$NEW_VERSION
         docker push orjape95/docker-graphql:latest
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
